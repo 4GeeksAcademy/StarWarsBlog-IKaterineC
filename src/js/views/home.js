@@ -37,7 +37,7 @@ export const Home = () => {
 				}
 			</div>
 
-			<h1 className="mt-4 mb-2">vehicles</h1>
+			<h1 className="mt-4 mb-2 text-light">Vehicles</h1>
 			<div className="d-flex flex-row overflow-scroll">
 				{store.vehicles.map((item, index) => {
 					return (

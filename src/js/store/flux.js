@@ -77,7 +77,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(error)
 					return false
 				}
+			},obtenerInfoVehiculos: async (id) => {
+				try {
+					const response = await fetch("https://www.swapi.tech/api/vehicles/"+id)
+					const data = await response.json() 
+					setStore({ vehicles: data.results }) 
+					console.log (data.result)
+				} catch (error) {
+					console.log(error)
+					return false
+				}
 			}
+			
 		}
 	};
 };

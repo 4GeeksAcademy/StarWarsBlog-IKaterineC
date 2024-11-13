@@ -3,31 +3,30 @@ import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export const Single = props => {
+export const SingleVehicles = props => {
 	const { store, actions } = useContext(Context);
 	const { theid } = useParams();
 
 	useEffect(() => {
-		actions.obtenerInfoPersonaje(theid)
+		actions.obtenerInfoVehicle(theid)
 	}, [])
 	return (
 		<div className="container">
 			<div className="card mb-3 text-light mx-auto" style={{ maxWidth: "700px", backgroundColor:"rgb(255,255,255,0.1)"}}>
 				<div className="row g-0">
 					<div className="col-md-4">
-						<img src={"https://starwars-visualguide.com/assets/img/characters/" + theid + ".jpg"} className="img-fluid rounded-start" alt="..." />
+						<img src={"https://www.swapi.tech/api/vehicles/" + theid + ".jpg"} className="img-fluid rounded-start" alt="..." />
 					</div>
 					<div className="col-md-8">
 						<div className="card-body">
-							<h5 className="card-title">{store.person.properties?.name}</h5>
-							<p className="card-text">{store.person.description}</p>
-							<p className="card-text">gender: {store.person.properties?.gender}</p>
-							<p className="cart-text"> birth year: {store.person?.properties?.birth_year}</p>
-							<p className="cart-text">eye_color: {store.person?.properties?.eye_color}</p>
-							<p className="cart-text">hair_color: {store.person?.properties?.hair_color}</p>
-							<p className="cart-text">height: {store.person?.properties?.height}</p>
-							<p className="cart-text">mass: {store.person?.properties?.mass}</p>
-							<p className="cart-text">skin color: {store.person?.properties?.skin_color}</p>
+							<h5 className="card-title">{store.vehicle.properties?.name}</h5>
+							<p className="card-text">Cargo capacity: {store.vechicle.properties?.cargo_capacity}</p>
+							<p className="cart-text">Cost in credits: {store.vechicle?.properties?.cost_in_credits}</p>
+							<p className="cart-text">Passengers: {store.vechicle?.properties?.passengers}</p>
+							<p className="cart-text">Manufacturer: {store.vechicle?.properties?.manufacturer}</p>
+							<p className="cart-text">Crew: {store.vechicle?.properties?.crew}</p>
+							<p className="cart-text">Vehicle class: {store.vechicle?.properties?.vehicle_class}</p>
+
 						</div>
 					</div>
 				</div>
@@ -36,6 +35,6 @@ export const Single = props => {
 	);
 };
 
-Single.propTypes = {
+SingleVehicles.propTypes = {
 	match: PropTypes.object
 };
