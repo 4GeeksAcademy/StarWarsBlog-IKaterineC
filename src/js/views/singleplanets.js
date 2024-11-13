@@ -12,7 +12,7 @@ export const SinglePlanet = props => {
     }, [])
     return (
         <div className="container">
-            <div className="card mb-3" style={{ maxWidth: "540px" }}>
+            <div className="card mb-3 mx-auto" style={{ maxWidth: "800px", backgroundColor:"rgb(255,255,255,0.1)" }}>
                 <div className="row g-0">
                     <div className="col-md-4">
                         <img src={theid == 1 ?
@@ -20,7 +20,7 @@ export const SinglePlanet = props => {
                             :"https://starwars-visualguide.com/assets/img/planets/" + theid + ".jpg"} className="img-fluid rounded-start" alt={store.planet?.properties?.name} />
                     </div>
                     <div className="col-md-8">
-                        <div className="card-body">
+                        <div className="card-body text-light">
                             <h5 className="card-title">{store.planet?.properties?.name}</h5>
                             {/* //los signos d epregunta significan que espere que se cargue la info// */}
                             <p className="card-text">{store.planet?.description}</p>

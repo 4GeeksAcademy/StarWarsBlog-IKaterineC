@@ -1,12 +1,15 @@
+import CardVehicles from "../component/cardvehicles";
 
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			people: [],
+			misFavoritos: [],
 			planets: [],
 			person: {},
 			planet: {},
-			misFavoritos: [],
+			vehicles: [],
+
 		},
 		actions: {
 
@@ -60,6 +63,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const data = await response.json()
 					 setStore({ planet: data.result })
 				console.log (data.result)
+				} catch (error) {
+					console.log(error)
+					return false
+				}
+			},
+			obtenerVehiculos: async () => {
+				try {
+					const response = await fetch("https://www.swapi.tech/api/vehicles")
+					const data = await response.json() //Transforma la info que llega del fetch en un objeto json//
+					setStore({ vehicles: data.results }) //para que guarde en store para verlo de todos los archivos//
 				} catch (error) {
 					console.log(error)
 					return false

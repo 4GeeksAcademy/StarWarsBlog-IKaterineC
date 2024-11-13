@@ -13,7 +13,7 @@ const Card = (props) => {
                 <div>
                     <Link to={"/single/" + props.uid}>
                         {/* //Vincula a la pagina single con el id de personaje// */}
-                        <button className="btn btn-outline-light float-start text-light">learn more</button>
+                        <button className="btn btn-outline-light float-start text-light">Learn more</button>
                     </Link>
                     <button className="btn btn-outline-warning mx-2 float-end" onClick={()=> actions.favoritos(props.name)}>
                         <i className={`fa fa-heart ${isFavorite? "text-light":"text-warning"}`}></i>
