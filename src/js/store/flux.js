@@ -9,7 +9,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			person: {},
 			planet: {},
 			vehicles: [],
-
+			vehicle: {}
 		},
 		actions: {
 
@@ -71,8 +71,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			obtenerVehiculos: async () => {
 				try {
 					const response = await fetch("https://www.swapi.tech/api/vehicles")
-					const data = await response.json() //Transforma la info que llega del fetch en un objeto json//
-					setStore({ vehicles: data.results }) //para que guarde en store para verlo de todos los archivos//
+					const data = await response.json() 
+					setStore({ vehicles: data.results }) 
 				} catch (error) {
 					console.log(error)
 					return false
@@ -81,7 +81,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				try {
 					const response = await fetch("https://www.swapi.tech/api/vehicles/"+id)
 					const data = await response.json() 
-					setStore({ vehicles: data.results }) 
+					setStore({ vehicle: data.result }) 
 					console.log (data.result)
 				} catch (error) {
 					console.log(error)
