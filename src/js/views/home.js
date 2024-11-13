@@ -1,37 +1,41 @@
-import React, { useEffect, useState, useContext } from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
+import React, { useState, useEffect, useContext } from "react";
 import "../../styles/home.css";
-import { Card } from "../component/card";
-import { Context } from "../store/appContext.js"
-import CardPlanets from "../component/cardplanets";
+
+import Card from "../component/card";
+import { Context } from "../store/appContext" //para ver las funciones de flux debemos importar de esta forma//
+import CardPlanets from "../component/cardplanets"; //asi importamos los componentes//
 
 
 export const Home = () => {
-
-	const { store, actions } = useContext(Context) //traer useContext cuando quiero usar Flux
-
-	const [people, setPeople] = useState([])
+	const { store, actions } = useContext(Context) //cada vez que quiero usar flux traer useContext, importar, traer {store,actions}// 
+	// const {people} = store  si lo hicieramos asi le estamos diciendo "traeme solo el array de people"//
 	useEffect(() => {
-		fetch("https://www.swapi.tech/api/people")
-			.then(res => res.json())
-			.then(data => setPeople(data.results))
-			.catch(err => console.error(err))
+		actions.obtenerPersonajes()
+		actions.obtenerPlanetas()
 	}, [])
 
-
-
-
 	return (
-		<>
-			<h1>Star Wars API </h1>
-			<h2>Characters</h2>
-			<div className="text-center mt-5  d-flex">
-				{people.map((personaje, index) => {
+		<div className="text-center mt-5">
+			<h1>API de Star Wars </h1>
+			<h1 className="mt-4 mb-2">characters</h1>
+			<div className="d-flex flex-row overflow-scroll">
+				{store.people.map((item, index) => {
 					return (
-						<Card key={index} name={personaje.name} uid={personaje.uid}></Card>
+						<Card key={index} name={item.name} uid={item.uid} />
 					)
 				})
 				}
 			</div>
-		</>)
+			<h1 className="mt-4 mb-2">planets</h1>
+			<div className="d-flex flex-row overflow-scroll">
+				{store.planets.map((item, index) => {
+					return (
+						<CardPlanets key={index} name={item.name} uid={item.uid} /> //agregue el componente//
+					)
+				})
+				}
+			</div>
+	
+		</div>
+	)
 };
