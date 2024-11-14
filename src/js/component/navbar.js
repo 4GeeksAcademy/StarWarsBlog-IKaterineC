@@ -18,7 +18,7 @@ export const Navbar = () => {
 							data-bs-toggle="dropdown"
 							aria-expanded="false" >
 							Favoritos</a>
-						<ul className="dropdown-menu me-5" style={{backgroundColor:"rgb(255,255,255,0.1"}} >
+						<ul className="dropdown-menu me-5 mt-2" style={{backgroundColor:"rgb(255,255,255,0.1"}} >
 							{store.misFavoritos.map((item, id) => (
 								<li key={id} className="">
 									<a className="dropdown-item-center text-light d-flex justify-content-around align-items-center me-2" onClick={() => actions.favoritos(item)}>

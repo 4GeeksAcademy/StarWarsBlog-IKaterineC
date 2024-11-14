@@ -12,22 +12,24 @@ export const Single = props => {
 	}, [])
 	return (
 		<div className="container">
-			<div className="card mb-3 text-light mx-auto" style={{ maxWidth: "700px", backgroundColor:"rgb(255,255,255,0.1)"}}>
-				<div className="row g-0">
-					<div className="col-md-4">
-						<img src={"https://starwars-visualguide.com/assets/img/characters/" + theid + ".jpg"} className="img-fluid rounded-start" alt="..." />
-					</div>
-					<div className="col-md-8">
-						<div className="card-body">
-							<h5 className="card-title">{store.person.properties?.name}</h5>
-							<p className="card-text">{store.person.description}</p>
-							<p className="card-text">gender: {store.person.properties?.gender}</p>
-							<p className="cart-text"> birth year: {store.person?.properties?.birth_year}</p>
-							<p className="cart-text">eye_color: {store.person?.properties?.eye_color}</p>
-							<p className="cart-text">hair_color: {store.person?.properties?.hair_color}</p>
-							<p className="cart-text">height: {store.person?.properties?.height}</p>
-							<p className="cart-text">mass: {store.person?.properties?.mass}</p>
-							<p className="cart-text">skin color: {store.person?.properties?.skin_color}</p>
+			<div className="d-flex">
+				<div className="col-4">
+					<img src={"https://starwars-visualguide.com/assets/img/characters/" + theid + ".jpg"} className="img-fluid rounded-start" alt="..." />
+				</div>
+				<div className="card text-light mx-auto col-8" style={{ maxWidth: "700px", backgroundColor: "rgb(255,255,255,0.1)" }}>
+					<div className="row g-0">
+						<div className="col-md-8 mx-auto">
+							<div className="card-body text-center mt-5">
+								<h5 className="card-title fs-1 text-warning">{store.person.properties?.name}</h5>
+								<p className="card-text text-info">{store.person.description}</p>
+								<p className="card-text"><span className="text-warning">Gender:</span> {store.person.properties?.gender}</p>
+								<p className="cart-text"><span className="text-warning">Birth year:</span> {store.person?.properties?.birth_year}</p>
+								<p className="cart-text"><span className="text-warning">Eye color:</span>{store.person?.properties?.eye_color}</p>
+								<p className="cart-text"><span className="text-warning">Hair color:</span> {store.person?.properties?.hair_color}</p>
+								<p className="cart-text"><span className="text-warning">Height:</span> {store.person?.properties?.height}</p>
+								<p className="cart-text"><span className="text-warning">Mass:</span> {store.person?.properties?.mass}</p>
+								<p className="cart-text"><span className="text-warning">Skin color:</span> {store.person?.properties?.skin_color}</p>
+							</div>
 						</div>
 					</div>
 				</div>
